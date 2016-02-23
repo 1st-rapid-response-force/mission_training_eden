@@ -5,6 +5,7 @@
 */
 
 enableSaving [false, false];
+nopop = true;
 
 //Perms
 debugEnabled = "debugEnabled" call BIS_fnc_getParamValue;
@@ -27,7 +28,6 @@ if (!isDedicated) then {
 
 
 // 3rd Party Init
-//_null = [[],[]] execVM "framework\3rd_party\lfc\feedInit.sqf";
 
 MISSION_ROOT = call { 
 private "_arr"; 
@@ -35,6 +35,7 @@ _arr = toArray __FILE__;
 _arr resize (count _arr - 8); 
 toString _arr 
 };
+
 [] execVM "framework\3rd_party\CoalaOS\initCoalaAfter.sqf";
 
 [] execVM "framework\3rd_party\fn_advancedSlingLoadingInit.sqf";

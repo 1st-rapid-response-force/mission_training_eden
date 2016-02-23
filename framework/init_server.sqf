@@ -7,12 +7,7 @@
 //Load Server events
 //_h = [] execVM "framework\fnc\serverEvents.sqf";
 
-rifleScores =  [0,0,0,0,0,0,0];
-pistolScores = [0,0,0,0,0,0,0];
-
-publicVariable "rifleScores";
-publicVariable "pistolScores";
-
+RangerMaster setVariable ["rifleScores",[0,0,0,0,0]];
 
 //Load Server Scripts
 
