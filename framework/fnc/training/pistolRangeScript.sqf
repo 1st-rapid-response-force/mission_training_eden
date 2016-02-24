@@ -29,18 +29,18 @@ _rangeArray = _this select 1;
 _timeBetweenTargets = _this select 2;
 _storeResult = _this select 3;
 
-_rifleArray = RangerMaster getVariable "pistolScores";
+_rifleArray = pistolScores;
 _rifleArray set [_laneNum,0];
-RangerMaster setVariable ["pistolScores", _rifleArray];
+publicVariable "pistolScores";
 
 
 fnc_target ={
 	_laneNum = _this select 0;
-	_rifleArray = RangerMaster getVariable "pistolScores";
+	_rifleArray = pistolScores;
 	_laneScore = (_rifleArray select _laneNum)+1;
 	_rifleArray set [_laneNum,_laneScore];
-	RangerMaster setVariable ["pistolScores", _rifleArray];
-	RangerMaster sideChat format["LANE - %1 - %2/60",_laneNum,_laneScore];
+	publicVariable "pistolScores";
+	RangerMaster sideChat format["LANE - %1 - %2/30",_laneNum,_laneScore];
 };
 
 fnc_countDown10 = {
@@ -82,7 +82,7 @@ for "_i" from 1 to _stageMaxScore do {
 	_target animate ["terc", 1];
 	_target removeMPEventHandler ["MPHit", 0];
 };
-_rifleArray = RangerMaster getVariable "pistolScores";
+_rifleArray = pistolScores;
 _laneScore = _rifleArray select _laneNum;
 hint format ["Total Score: %1/30",_laneScore];
 
@@ -102,7 +102,7 @@ for "_i" from 1 to _stageMaxScore do {
 	_target animate ["terc", 1];
 	_target removeMPEventHandler ["MPHit", 0];
 };
-_rifleArray = RangerMaster getVariable "pistolScores";
+_rifleArray = pistolScores;
 _laneScore = _rifleArray select _laneNum;
 hint format ["Total Score: %1/30",_laneScore];
 
