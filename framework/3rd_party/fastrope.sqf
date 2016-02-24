@@ -50,7 +50,7 @@
 
 // Who can toss and cut ropes
 // 0 = everyone, 1 = cargo only, 2 = pilots only
-SHK_Fastrope_AccessLevel = 0;
+SHK_Fastrope_AccessLevel = ;
 
 // ["ClassName",["Door_L","Door_R"],[[ropeAttachPosition1],[ropeAttachPosition2]]]
 // Search for the chopper type is done from top to bottom. You can use vehicle base classes,
@@ -66,7 +66,6 @@ SHK_Fastrope_Helis = [
   ["RHS_Ka60_grey",[],[[1.4,1.35,0],[-1.4,1.35,0]]],
 
   //RHS: United States Armed Forces
-  ["RHS_CH_47F_base",[],[[0,-0.4,0]]],
   ["RHS_UH60_base",["DoorRB"],[[1.44,1.93,-0.49]]],
   ["RHS_UH1_base",["DoorLB","DoorRB"],[[0.95,3,-0.9],[-0.95,3,-0.9]]],
     

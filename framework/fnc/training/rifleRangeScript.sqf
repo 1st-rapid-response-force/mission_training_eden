@@ -29,6 +29,10 @@ _rangeArray = _this select 1;
 _timeBetweenTargets = _this select 2;
 _storeResult = _this select 3;
 
+_rifleArray = RangerMaster getVariable "rifleScores";
+_rifleArray set [_laneNum,0];
+RangerMaster setVariable ["rifleScores", _rifleArray];
+
 fnc_target ={
 	_laneNum = _this select 0;
 	_rifleArray = RangerMaster getVariable "rifleScores";
@@ -50,8 +54,19 @@ fnc_countDown10 = {
 
 
 //Comsmetics
-
-
+titleText ["Rifle Range Qualification Course","PLAIN",1];
+hint "Welcome to Rifle Range Qualification Course";
+sleep 5;
+hint "You will be given 10 Targets in the Standing Position, 20 Targets in the Crouch Position, and 30 targets in the Prone Position";
+sleep 5;
+hint "Please Load your Rifle";
+sleep 5;
+hint "USE 1 ROUND PER TARGET ONLY!";
+sleep 5;
+hint "STANDING POSITION";
+//Begin Alarm
+_null = call fnc_countDown10;
+//Drop Targets
 {_x animate ["terc", 1];} forEach _rangeArray;
 
 //Standing
