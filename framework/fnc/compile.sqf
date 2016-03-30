@@ -6,9 +6,14 @@
 
 /////////////////////SERVER\\\\\\\\\\\\\\\\\\\\\
 if (isServer) then {
+  // Fusion Enabled
+  if (rrfFusion == 1) then {
+    rrf_fnc_utility_serverGetID = compile preprocessfilelinenumbers 'framework\fnc\utility\serverGetID.sqf';
+  };
+  
   // Loadout
   if (rrfWebLoadout == 1) then {
-    rrf_fnc_loadout_serverGetLoadout = compile preprocessfilelinenumbers "framework\fnc\loadout\serverGetLoadout.sqf";
+    rrf_fnc_loadout_serverGetLoadout = compile preprocessfilelinenumbers "framework\fnc\armory\serverGetLoadout.sqf";
   };
   // Persistence
   if (rrfPersistence == 1) then {
@@ -18,9 +23,6 @@ if (isServer) then {
     rrf_fnc_persistence_player_serverRestorePosition =  compile preprocessfilelinenumbers 'framework\fnc\persistence\player\serverRestorePosition.sqf';
     rrf_fnc_persistence_medical_serverStoreMedical =  compile preprocessfilelinenumbers 'framework\fnc\persistence\medical\serverStoreMedical.sqf';
     rrf_fnc_persistence_medical_serverRestoreMedical =  compile preprocessfilelinenumbers 'framework\fnc\persistence\medical\serverRestoreMedical.sqf';
-
-
-    rrf_fnc_persistence_medical_serverACEMedicalStore = "";
   };
 
   rrf_fnc_analytics_analyticEvent = compile preprocessfilelinenumbers "framework\fnc\analytics\analyticEvent.sqf";
@@ -35,8 +37,8 @@ if (debugEnabled == 1) then {
 
 // Loadout
 if (rrfWebLoadout == 1) then {
-  rrf_fnc_loadout_nameLoadoutBox = compile preprocessfilelinenumbers 'framework\fnc\loadout\nameLoadoutBox.sqf';
-  rrf_fnc_loadout_removeLoadoutBox = compile preprocessfilelinenumbers 'framework\fnc\loadout\removeLoadoutBox.sqf';
+  rrf_fnc_loadout_nameLoadoutBox = compile preprocessfilelinenumbers 'framework\fnc\armory\nameLoadoutBox.sqf';
+  rrf_fnc_loadout_removeLoadoutBox = compile preprocessfilelinenumbers 'framework\fnc\armory\removeLoadoutBox.sqf';
 };
 
 // Persistence
@@ -62,12 +64,17 @@ rrf_fnc_training_serverStoreRange =  compile preprocessfilelinenumbers 'framewor
 if (!isDedicated) then {
   // Loadout
   if (rrfWebLoadout == 1) then {
-    rrf_fnc_loadout_setupArmory = compile preprocessfilelinenumbers "framework\fnc\loadout\setupArmory.sqf";
-    rrf_fnc_loadout_getLoadout = compile preprocessfilelinenumbers "framework\fnc\loadout\getLoadout.sqf";
+    rrf_fnc_loadout_setupArmory = compile preprocessfilelinenumbers "framework\fnc\armory\setupArmory.sqf";
+    rrf_fnc_loadout_getLoadout = compile preprocessfilelinenumbers "framework\fnc\armory\getLoadout.sqf";
   };
 
   rrf_fnc_toc_setupTOC = compile preprocessfilelinenumbers "framework\fnc\toc\setupTOC.sqf";
   rrf_fnc_toc_openCoalaOS = compile preprocessfilelinenumbers "framework\fnc\toc\openCoalaOS.sqf";
+
+  if (rrfPersistence == 1) then {
+    rrf_fnc_loops_criticalLoop = compile preprocessfilelinenumbers "framework\fnc\loops\critical_loop.sqf";
+    rrf_fnc_loops_nonCriticalLoop = compile preprocessfilelinenumbers "framework\fnc\loops\non_critical_loop.sqf";
+  };
 
 };
 

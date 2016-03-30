@@ -28,19 +28,17 @@ _laneNum = _this select 0;
 _rangeArray = _this select 1;
 _timeBetweenTargets = _this select 2;
 _storeResult = _this select 3;
-
-_rifleArray = pistolScores;
-_rifleArray set [_laneNum,0];
-publicVariable "pistolScores";
+profileNamespace setVariable ["pistol_lane_score",0];
 
 
 fnc_target ={
-	_laneNum = _this select 0;
-	_rifleArray = pistolScores;
-	_laneScore = (_rifleArray select _laneNum)+1;
-	_rifleArray set [_laneNum,_laneScore];
-	publicVariable "pistolScores";
-	RangerMaster sideChat format["LANE - %1 - %2/30",_laneNum,_laneScore];
+	_object = _this select 0;
+	_laneNum = _this select 1;
+	_laneScore = profileNamespace getVariable "pistol_lane_score";
+	//Increment
+	_laneScore = _laneScore+1;
+	profileNamespace setVariable ["pistol_lane_score",_laneScore];
+	RangerMaster sideChat format["RIFLE LANE %1 - %2/60",_laneNum,_laneScore];
 };
 
 fnc_countDown10 = {
@@ -59,7 +57,7 @@ fnc_countDown10 = {
 titleText ["Pistol Range Qualification Course","PLAIN",1];
 hint "Welcome to Pistol Range Qualification Course";
 sleep 5;
-hint "You will be given 15 Targets in the Standing Position, You will be scored per hit, you should double tap each target";
+hint "You will be given 30 Targets in the Standing Position (REST AT 15), Shoot ONLY ONE ROUND per target.";
 sleep 5;
 hint "Please Load your Pistol";
 sleep 5;
@@ -70,7 +68,7 @@ _null = call fnc_countDown10;
 {_x animate ["terc", 1];} forEach _rangeArray;
 
 //Standing
-_stageMaxScore = 8;
+_stageMaxScore = 15;
 titleText ["Standing - 15 Round","PLAIN",1];
 sleep _timeBetweenTargets;
 hint "Range is HOT!";
@@ -80,18 +78,14 @@ for "_i" from 1 to _stageMaxScore do {
 	_target animate ["terc", 0];
 	sleep _timeBetweenTargets;
 	_target animate ["terc", 1];
-	_target removeMPEventHandler ["MPHit", 0];
 };
-_rifleArray = pistolScores;
-_laneScore = _rifleArray select _laneNum;
+_rifleArray = RangerMaster getVariable "pistolScores";
+_laneScore = profileNamespace getVariable "pistol_lane_score";
 hint format ["Total Score: %1/30",_laneScore];
 
-
-//Crouch
-sleep 5;
-hint "Prepare for Rapid Fire";
-sleep 5;
-_stageMaxScore = 6;
+//Standing
+_stageMaxScore = 15;
+titleText ["Standing - 15 Round (FINAL)","PLAIN",1];
 sleep _timeBetweenTargets;
 hint "Range is HOT!";
 for "_i" from 1 to _stageMaxScore do {
@@ -100,11 +94,11 @@ for "_i" from 1 to _stageMaxScore do {
 	_target animate ["terc", 0];
 	sleep _timeBetweenTargets;
 	_target animate ["terc", 1];
-	_target removeMPEventHandler ["MPHit", 0];
 };
-_rifleArray = pistolScores;
-_laneScore = _rifleArray select _laneNum;
+_rifleArray = RangerMaster getVariable "pistolScores";
+_laneScore = profileNamespace getVariable "pistol_lane_score";
 hint format ["Total Score: %1/30",_laneScore];
+
 
 //Reset Range
 sleep 5;
