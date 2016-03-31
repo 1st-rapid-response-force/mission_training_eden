@@ -66,7 +66,7 @@ hint "STANDING POSITION";
 _null = call fnc_countDown10;
 //Drop Targets
 {_x animate ["terc", 1];} forEach _rangeArray;
-
+{_x addMPEventHandler ["MPHit", format ["_null = [%1,%2] call fnc_target", _x, _laneNum]];} forEach _rangeArray;
 //Standing
 _stageMaxScore = 15;
 titleText ["Standing - 15 Round","PLAIN",1];
@@ -74,7 +74,6 @@ sleep _timeBetweenTargets;
 hint "Range is HOT!";
 for "_i" from 1 to _stageMaxScore do {
 	_target = _rangeArray call BIS_fnc_selectRandom;
-	_target addMPEventHandler ["MPHit", format ["_null = [%1] call fnc_target", _laneNum]];
 	_target animate ["terc", 0];
 	sleep _timeBetweenTargets;
 	_target animate ["terc", 1];
@@ -90,7 +89,6 @@ sleep _timeBetweenTargets;
 hint "Range is HOT!";
 for "_i" from 1 to _stageMaxScore do {
 	_target = _rangeArray call BIS_fnc_selectRandom;
-	_target addMPEventHandler ["MPHit", format ["_null = [%1] call fnc_target", _laneNum]];
 	_target animate ["terc", 0];
 	sleep _timeBetweenTargets;
 	_target animate ["terc", 1];
@@ -102,6 +100,7 @@ hint format ["Total Score: %1/30",_laneScore];
 
 //Reset Range
 sleep 5;
+{_x removeMPEventHandler ["MPHit", 0];} forEach _rangeArray;
 {_x animate ["terc", 0];} forEach _rangeArray;
 hint "CEASE FIRE - RANGE IS CLEAR. Return to your instructor for further details.";
 
