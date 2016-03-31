@@ -21,6 +21,13 @@ class Params
 		texts[] = {"Enabled","Disabled"};
 		default = 0;
 	};
+	class rrfAnalytics
+	{
+		title = "1st RRF - Analytics System";
+		values[] = {1,0};
+		texts[] = {"Enabled","Disabled"};
+		default = 0;
+	};
 	class rrfWebLoadout
 	{
 		title = "1st RRF - Web Loadout System";

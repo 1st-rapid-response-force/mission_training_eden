@@ -25,5 +25,5 @@ waitUntil {scriptDone _h};
 
 // Fusion Enabled
 if (rrfFusion == 1) then {
-	_h =  ["development","wake"] call rrf_fnc_utility_serverGetID;
+	_h =  ["training","wake"] call rrf_fnc_utility_serverGetID;
 };
