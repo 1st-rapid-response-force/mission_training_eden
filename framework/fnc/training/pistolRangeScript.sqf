@@ -28,19 +28,19 @@ _laneNum = _this select 0;
 _rangeArray = _this select 1;
 _timeBetweenTargets = _this select 2;
 _storeResult = _this select 3;
-call (compile (format ["profileNamespace setVariable [""pistol_lane_score_%1"",%2];",_laneNum,0]));
+_rangeId = _this select 5;
 
+// Call Function on Server by sending it the neccessary information
+[_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeStart", 2];
 
 fnc_target ={
 	_object = _this select 0;
 	_object removeMPEventHandler ["MPHit", 0];
-	_laneNum = _this select 1;
-	_laneScore = call (compile (format ["profileNamespace getVariable ""pistol_lane_score_%1"";",_laneNum]));
-	//Increment
-	_laneScore = _laneScore+1;
-	call (compile (format ["profileNamespace setVariable [""pistol_lane_score_%1"",%2];",_laneNum,_laneScore]));
+	// Call Function on Server by sending it the neccessary information
+	[_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeHit", 2];
 
 };
+
 
 
 
@@ -94,7 +94,7 @@ for "_i" from 1 to _stageMaxScore do {
 	sleep _timeBetweenTargets;
 };
 
-_laneScore = call (compile (format ["profileNamespace getVariable ""pistol_lane_score_%1"";",_laneNum]));
+_laneScore = [_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 hint format ["Total Score: %1/30",_laneScore];
 
 sleep 5;
@@ -124,7 +124,7 @@ for "_i" from 1 to _stageMaxScore do {
 };
 
 
-_laneScore = call (compile (format ["profileNamespace getVariable ""pistol_lane_score_%1"";",_laneNum]));
+_laneScore = [_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 hint format ["Total Score: %1/30",_laneScore];
 
 //Reset Range

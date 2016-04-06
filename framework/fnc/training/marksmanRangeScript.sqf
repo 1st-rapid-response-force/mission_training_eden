@@ -29,20 +29,18 @@ _rangeArray = _this select 1;
 _timeBetweenTargets = _this select 2;
 _storeResult = _this select 3;
 _rangeMaster = _this select 4;
+_rangeId = _this select 5;
 
-call (compile (format ["profileNamespace setVariable [""marksman_lane_score_%1"",%2];",_laneNum,0]));
+// Call Function on Server by sending it the neccessary information
+[_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeStart", 2];
 
 fnc_target ={
 	_object = _this select 0;
 	_object removeMPEventHandler ["MPHit", 0];
-	_laneNum = _this select 1;
-	_laneScore = call (compile (format ["profileNamespace getVariable ""marksman_lane_score_%1"";",_laneNum]));
-	//Increment
-	_laneScore = _laneScore+1;
-	call (compile (format ["profileNamespace setVariable [""marksman_lane_score_%1"",%2];",_laneNum,_laneScore]));
+	// Call Function on Server by sending it the neccessary information
+	[_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeHit", 2];
 
 };
-
 
 
 fnc_countDown10 = {
@@ -73,7 +71,7 @@ _null = call fnc_countDown10;
 {_x animate ["terc", 1];} forEach _rangeArray;
 
 //Standing
-_stageMaxScore = 10;
+_stageMaxScore = 20;
 sleep _timeBetweenTargets;
 hint "Range is HOT!";
 _previousTarget = _rangeArray select 0;
@@ -94,7 +92,7 @@ for "_i" from 1 to _stageMaxScore do {
 	sleep _timeBetweenTargets;
 };
 
-_laneScore = call (compile (format ["profileNamespace getVariable ""marksman_lane_score_%1"";",_laneNum]));
+_laneScore = [_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 hint format ["Total Score: %1/20",_laneScore];
 
 //Reset Range
@@ -106,7 +104,7 @@ hint "CEASE FIRE - RANGE IS CLEAR. Return to your instructor for further details
 // We will need to create a method for storing this information
 if (rrfFusion == 1) then {
 	if (_storeResult == 1) then {
-	    _store = [_uuid, _rangeType, _laneScore, 60, _weapon] remoteExecCall ["rrf_fnc_training_serverStoreRange",2];
+	    _store = [_uuid, _rangeType, _laneScore, 20, _weapon] remoteExecCall ["rrf_fnc_training_serverStoreRange",2];
 	    RangerMaster sideChat format["MARKSMAN LANE %1 - %2/20 - Score has been saved to Catalyst",_laneNum,_laneScore];
 	};
 };
@@ -115,4 +113,3 @@ if (rrfFusion == 1) then {
 sleep 5;
 //Determine Qualification
 hint format ["Final Report: %1/20 \n \n Remove the Magazine from your weapon!",_laneScore];
-call (compile (format ["profileNamespace setVariable [""marksman_lane_score_%1"",%2];",_laneNum,0]));

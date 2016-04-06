@@ -29,17 +29,16 @@ _rangeArray = _this select 1;
 _timeBetweenTargets = _this select 2;
 _storeResult = _this select 3;
 _rangeMaster = _this select 4;
+_rangeId = _this select 5;
 
-call (compile (format ["profileNamespace setVariable [""lane_score_%1"",%2];",_laneNum,0]));
+// Call Function on Server by sending it the neccessary information
+[_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeStart", 2];
 
 fnc_target ={
 	_object = _this select 0;
 	_object removeMPEventHandler ["MPHit", 0];
-	_laneNum = _this select 1;
-	_laneScore = call (compile (format ["profileNamespace getVariable ""lane_score_%1"";",_laneNum]));
-	//Increment
-	_laneScore = _laneScore+1;
-	call (compile (format ["profileNamespace setVariable [""lane_score_%1"",%2];",_laneNum,_laneScore]));
+	// Call Function on Server by sending it the neccessary information
+	[_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeHit", 2];
 
 };
 
@@ -94,7 +93,7 @@ for "_i" from 1 to _stageMaxScore do {
 	sleep _timeBetweenTargets;
 };
 
-_laneScore = call (compile (format ["profileNamespace getVariable ""lane_score_%1"";",_laneNum]));
+_laneScore = [_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 hint format ["Total Score: %1/60",_laneScore];
 
 //Crouch
@@ -123,7 +122,7 @@ for "_i" from 1 to _stageMaxScore do {
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
 };
-_laneScore = call (compile (format ["profileNamespace getVariable ""lane_score_%1"";",_laneNum]));
+_laneScore = [_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 hint format ["Total Score: %1/60",_laneScore];
 
 //Prone
@@ -153,7 +152,7 @@ for "_i" from 1 to _stageMaxScore do {
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
 };
-_laneScore = call (compile (format ["profileNamespace getVariable ""lane_score_%1"";",_laneNum]));
+_laneScore = [_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 hint format ["Total Score: %1/60",_laneScore];
 
 //Reset Range

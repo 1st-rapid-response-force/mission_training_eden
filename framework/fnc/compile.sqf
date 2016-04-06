@@ -33,6 +33,9 @@ if (isServer) then {
 
   // Training
   rrf_fnc_training_serverStoreRange =  compile preprocessfilelinenumbers 'framework\fnc\training\serverStoreRange.sqf';
+  rrf_fnc_training_serverRangeReport =  compile preprocessfilelinenumbers 'framework\fnc\training\serverRangeReport.sqf';
+  rrf_fnc_training_serverRangeStart =  compile preprocessfilelinenumbers 'framework\fnc\training\serverRangeStart.sqf';
+  rrf_fnc_training_serverRangeHit =  compile preprocessfilelinenumbers 'framework\fnc\training\serverRangeHit.sqf';
 
   rrf_fnc_analytics_analyticEvent = compile preprocessfilelinenumbers "framework\fnc\analytics\analyticEvent.sqf";
 };
