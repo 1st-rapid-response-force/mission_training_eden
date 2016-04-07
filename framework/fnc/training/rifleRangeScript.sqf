@@ -173,4 +173,3 @@ if (rrfFusion == 1) then {
 sleep 5;
 //Determine Qualification
 hint format ["Final Report: %1/60 \n \n Remove the Magazine from your weapon!",_laneScore];
-call (compile (format ["profileNamespace setVariable [""lane_score_%1"",%2];",_laneNum,0]));
