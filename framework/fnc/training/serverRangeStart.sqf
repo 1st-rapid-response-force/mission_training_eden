@@ -13,10 +13,9 @@
 _server_id = server_id;
 _rangeId = _this select 0;
 
-[_rangeId] spawn {
+_score = [_rangeId] spawn {
         _rangeId = _this select 0;
-        _method = "start_range";
+        _method = "range_begin";
         _params = [[server_id,_rangeId]];
         _response = [_method, _params] call sock_rpc;
-
 };

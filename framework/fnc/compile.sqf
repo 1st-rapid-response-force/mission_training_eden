@@ -76,9 +76,10 @@ rrf_fnc_training_marksmanRange =  compile preprocessfilelinenumbers 'framework\f
 rrf_fnc_training_pistolRange =  compile preprocessfilelinenumbers 'framework\fnc\training\pistolRangeScript.sqf';
 rrf_fnc_training_longRange =  compile preprocessfilelinenumbers 'framework\fnc\training\longRangeScript.sqf';
 rrf_fnc_training_grenadeRange =  compile preprocessfilelinenumbers 'framework\fnc\training\grenadeRangeScript.sqf';
-rrf_fnc_training_resetRange =  compile preprocessfilelinenumbers 'framework\fnc\training\resetRangeScript.sqf';
-rrf_fnc_training_getRangeScores =  compile preprocessfilelinenumbers 'framework\fnc\training\getRangeScoresScript.sqf';
+rrf_fnc_training_reportScore =  compile preprocessfilelinenumbers 'framework\fnc\training\reportScore.sqf';
 
+// Events
+rrf_fnc_events_playerDisconnect =  compile preprocessfilelinenumbers 'framework\fnc\events\playerDisconnect.sqf';
 
 
 /////////////////////CLIENT\\\\\\\\\\\\\\\\\\\\\

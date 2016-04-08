@@ -16,6 +16,7 @@
 
 //Variable Setup
 _player = player;
+_ownerID = owner player;
 _uuid = getPlayerUID _player;
 _name = name player;
 _weapon = currentWeapon _player;
@@ -36,7 +37,10 @@ _rangeId = _this select 5;
 
 fnc_target ={
 	_object = _this select 0;
-	_object removeMPEventHandler ["MPHit", 0];
+	_object removeAllEventHandlers "HitPart";
+	_laneNum = _this select 1;
+	_rangeId = _this select 2;
+
 	// Call Function on Server by sending it the neccessary information
 	[_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeHit", 2];
 
@@ -85,16 +89,15 @@ for "_i" from 1 to _stageMaxScore do {
 	    _target = _rangeArray call BIS_fnc_selectRandom;
 	  };
 	};
-	_target addMPEventHandler ["MPHit", format ["_null = [%1,%2] call fnc_target", _target, _laneNum]];
+	_target addEventHandler ["HitPart", format ["_null = [%1,%2,%3] call fnc_target", _target, _laneNum,_rangeId]];
 	_target animate ["terc", 0];
 	sleep _timeBetweenTargets;
 	_target animate ["terc", 1];
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
+	_target removeAllEventHandlers "HitPart";
 };
-
-_laneScore = [_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
-hint format ["Total Score: %1/60",_laneScore];
+[_rangeId,60,player,_ownerID] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 
 //Crouch
 sleep 5;
@@ -115,15 +118,15 @@ for "_i" from 1 to _stageMaxScore do {
 	    _target = _rangeArray call BIS_fnc_selectRandom;
 	  };
 	};
-	_target addMPEventHandler ["MPHit", format ["_null = [%1,%2] call fnc_target", _target, _laneNum]];
+	_target addEventHandler ["HitPart", format ["_null = [%1,%2,%3] call fnc_target", _target, _laneNum,_rangeId]];
 	_target animate ["terc", 0];
 	sleep _timeBetweenTargets;
 	_target animate ["terc", 1];
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
+	_target removeAllEventHandlers "HitPart";
 };
-_laneScore = [_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
-hint format ["Total Score: %1/60",_laneScore];
+[_rangeId,60,player,_ownerID] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 
 //Prone
 sleep 5;
@@ -145,15 +148,15 @@ for "_i" from 1 to _stageMaxScore do {
 	    _target = _rangeArray call BIS_fnc_selectRandom;
 	  };
 	};
-	_target addMPEventHandler ["MPHit", format ["_null = [%1,%2] call fnc_target", _target, _laneNum]];
+	_target addEventHandler ["HitPart", format ["_null = [%1,%2,%3] call fnc_target", _target, _laneNum,_rangeId]];
 	_target animate ["terc", 0];
 	sleep _timeBetweenTargets;
 	_target animate ["terc", 1];
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
+	_target removeAllEventHandlers "HitPart";
 };
-_laneScore = [_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
-hint format ["Total Score: %1/60",_laneScore];
+[_rangeId,60,player,_ownerID] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 
 //Reset Range
 sleep 5;
@@ -164,12 +167,10 @@ hint "CEASE FIRE - RANGE IS CLEAR. Return to your instructor for further details
 // We will need to create a method for storing this information
 if (rrfFusion == 1) then {
 	if (_storeResult == 1) then {
-	    _store = [_uuid, _rangeType, _laneScore, 60, _weapon] remoteExecCall ["rrf_fnc_training_serverStoreRange",2];
-	    RangerMaster sideChat format["RIFLE LANE %1 - %2/60 - Score has been saved to Catalyst",_laneNum,_laneScore];
+	    _store = [_uuid, _rangeType, 60, _weapon, _rangeId] remoteExecCall ["rrf_fnc_training_serverStoreRange",2];
+	    RangerMaster sideChat format["RIFLE LANE %1 -Score has been saved to Catalyst",_laneNum];
 	};
 };
 //
 
 sleep 5;
-//Determine Qualification
-hint format ["Final Report: %1/60 \n \n Remove the Magazine from your weapon!",_laneScore];

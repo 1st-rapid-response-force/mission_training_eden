@@ -34,3 +34,6 @@ if (rrfFusion == 1) then {
 [] execVM "framework\3rd_party\fn_advancedSlingLoadingInit.sqf";
 
 missionNamespace setVariable ["SA_ASL_HEAVY_LIFTING_ENABLED",true,true];
+
+// Event Handlers
+disconnectedEvent = addMissionEventHandler ["HandleDisconnect",{[(_this select 0)] call rrf_fnc_events_playerDisconnect}];
