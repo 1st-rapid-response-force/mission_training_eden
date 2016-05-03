@@ -16,11 +16,6 @@
 
 	        // Save Medical Status
 	        //_h = [player] call rrf_fnc_persistence_medical_getPlayerMedical;
-
-			sleep 5;
-
-			_h = [player,_ownerID] spawn rrf_fnc_loops_criticalLoop;
-			_h = [player,_ownerID] spawn rrf_fnc_loops_nonCriticalLoop;
 		};
 		_uuid = getPlayerUID player;
 	};
