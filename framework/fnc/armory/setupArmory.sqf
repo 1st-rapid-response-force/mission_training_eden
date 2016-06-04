@@ -22,3 +22,4 @@ _action = ["Armory","Armory","",{},{true}] call ace_interact_menu_fnc_createActi
 
 _action = ['Armory_getLoadout','Request Loadout','',{[] call rrf_fnc_loadout_getLoadout},{true}] call ace_interact_menu_fnc_createAction;
 [_armorer, 0, ["ACE_MainActions","Armory"], _action] call ace_interact_menu_fnc_addActionToObject;
+

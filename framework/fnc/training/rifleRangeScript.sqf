@@ -167,8 +167,8 @@ hint "CEASE FIRE - RANGE IS CLEAR. Return to your instructor for further details
 // We will need to create a method for storing this information
 if (rrfFusion == 1) then {
 	if (_storeResult == 1) then {
-	    _store = [_uuid, _rangeType, 60, _weapon, _rangeId] remoteExecCall ["rrf_fnc_training_serverStoreRange",2];
-	    RangerMaster sideChat format["RIFLE LANE %1 -Score has been saved to Catalyst",_laneNum];
+	    //_store = [_uuid, _rangeType, 60, _weapon, _rangeId] remoteExecCall ["rrf_fnc_training_serverStoreRange",2];
+	    RangerMaster sideChat format["RIFLE LANE %1 - Saving Disabled pending update",_laneNum];
 	};
 };
 //

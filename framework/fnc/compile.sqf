@@ -92,6 +92,10 @@ if (!isDedicated) then {
     rrf_fnc_loadout_getLoadout = compile preprocessfilelinenumbers "framework\fnc\armory\getLoadout.sqf";
   };
 
+  // Training Scripts
+  rrf_fnc_training_setupInstructorPanel = compile preprocessfilelinenumbers "framework\fnc\training\instructorPanel.sqf";
+  rrf_fnc_training_clearWeather = compile preprocessfilelinenumbers "framework\fnc\training\clearWeather.sqf";
+
 };
 
 if (debugEnabled == 1) then {
