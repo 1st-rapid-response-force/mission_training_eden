@@ -32,15 +32,15 @@ _storeResult = _this select 3;
 _rangeId = _this select 4;
 
 // Call Function on Server by sending it the neccessary information
-[_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeStart", 2];
 
 fnc_target ={
 	_object = _this select 0;
 	_laneNum = _this select 1;
 	_rangeId = _this select 2;
 	_object removeAllEventHandlers "HitPart";
-	// Call Function on Server by sending it the neccessary information
-	[_rangeId] remoteExecCall ["rrf_fnc_training_serverRangeHit", 2];
+	hintSilent  "Target Hit";
+		sleep 1;
+	hintSilent "";
 
 };
 
