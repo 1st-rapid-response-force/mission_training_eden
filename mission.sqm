@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=618;
+		nextID=630;
 	};
 	class Camera
 	{
-		pos[]={2102.5994,210.12442,6854.1533};
-		dir[]={0.78228873,-0.36575669,-0.50447255};
-		up[]={0.30750757,0.93057162,-0.19830966};
-		aside[]={-0.54199153,-4.0950254e-006,-0.84047627};
+		pos[]={7024.002,10.163118,5384.1953};
+		dir[]={-0.73700404,-0.58106369,-0.3456133};
+		up[]={-0.52616501,0.81370467,-0.24673392};
+		aside[]={-0.42461401,-4.5977067e-006,0.90546125};
 	};
 };
 binarizationWanted=0;
@@ -681,25 +681,6 @@ class CustomAttributes
 		name="Multiplayer";
 		class Attribute0
 		{
-			property="RespawnButton";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"SCALAR"
-						};
-					};
-					value=1;
-				};
-			};
-		};
-		class Attribute1
-		{
 			property="RespawnTemplates";
 			expression="true";
 			class Value
@@ -731,6 +712,25 @@ class CustomAttributes
 							};
 						};
 					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="RespawnButton";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
 				};
 			};
 		};
@@ -156484,11 +156484,12 @@ class Mission
 		{
 			dataType="Trigger";
 			position[]={7015.0562,3.0367951,5380.6768};
-			angle=-2.0943949;
+			angle=4.1887903;
 			class Attributes
 			{
-				onActivation="gate1 animate [""Door_1_rot"", 1];";
-				onDeactivation="gate1 animate [""Door_1_rot"", 0]";
+				condition="call{this}";
+				onActivation="call{gate1_1 animate [""Door_1_rot"", 1];}";
+				onDeactivation="call{gate1_1 animate [""Door_1_rot"", 0]}";
 				sizeA=5;
 				sizeB=10;
 				repeatable=1;
