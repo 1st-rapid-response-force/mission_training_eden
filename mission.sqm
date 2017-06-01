@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=26129;
+		nextID=26130;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=726;
+		nextID=738;
 	};
 	class Camera
 	{
-		pos[]={7626.2695,294.05096,4380.2266};
-		dir[]={-0.32904279,-0.39374557,-0.85831976};
-		up[]={-0.14095075,0.91921151,-0.36767441};
-		aside[]={-0.9337458,3.0105002e-007,0.35795751};
+		pos[]={8087.6572,456.15286,4230.0659};
+		dir[]={-0.73525405,-0.6181832,0.27819619};
+		up[]={-0.57819849,0.78602427,0.21877156};
+		aside[]={0.35390839,6.4843334e-008,0.93535507};
 	};
 };
 binarizationWanted=0;
@@ -139,13 +139,14 @@ addons[]=
 	"A3_Static_F_Jets_SAM_System_01",
 	"A3_Air_F_Jets_Plane_Fighter_01",
 	"FIR_AirWeaponSystem_US",
-	"rhsusf_c_HEMTT_A4"
+	"rhsusf_c_HEMTT_A4",
+	"ATLAS_Water"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=75;
+		items=76;
 		class Item0
 		{
 			className="A3_Structures_F";
@@ -627,6 +628,11 @@ class AddonsMetaData
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
+		class Item75
+		{
+			className="ATLAS_Water";
+			name="ATLAS_Water";
+		};
 	};
 };
 randomSeed=14667655;
@@ -653,25 +659,6 @@ class CustomAttributes
 	{
 		name="Multiplayer";
 		class Attribute0
-		{
-			property="RespawnButton";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"SCALAR"
-						};
-					};
-					value=1;
-				};
-			};
-		};
-		class Attribute1
 		{
 			property="RespawnTemplates";
 			expression="true";
@@ -704,6 +691,25 @@ class CustomAttributes
 							};
 						};
 					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="RespawnButton";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
 				};
 			};
 		};
@@ -762,7 +768,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=4774;
+		items=4775;
 		class Item0
 		{
 			dataType="Object";
@@ -224147,7 +224153,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7687.9712,3.9013438,3934.2678};
-				angles[]={-0,4.2501831,0};
+				angles[]={0,4.2501831,0};
 			};
 			side="Empty";
 			flags=4;
@@ -225438,8 +225444,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="MELB_SN_Nose";
-					expression="_this animate ['hide_SN_nose',_value,true]";
+					property="MELB_clan";
+					expression="_this animate ['hide_clan',_value,true]";
 					class Value
 					{
 						class data
@@ -225514,8 +225520,8 @@ class Mission
 				};
 				class Attribute4
 				{
-					property="MELB_clan";
-					expression="_this animate ['hide_clan',_value,true]";
+					property="MELB_SN_Nose";
+					expression="_this animate ['hide_SN_nose',_value,true]";
 					class Value
 					{
 						class data
@@ -226067,7 +226073,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7720.604,3.9013438,4005.4534};
-				angles[]={-0,4.2953029,0};
+				angles[]={0,4.2953029,0};
 			};
 			side="Empty";
 			flags=4;
@@ -226109,6 +226115,7 @@ class Mission
 			};
 			id=26123;
 			type="rhsusf_M1078A1P2_B_d_flatbed_fmtv_usarmy";
+			atlOffset=-0.014093876;
 		};
 		class Item4771
 		{
@@ -226154,6 +226161,24 @@ class Mission
 			};
 			id=26127;
 			type="rhsusf_M978A4_BKIT_usarmy_d";
+		};
+		class Item4774
+		{
+			dataType="Object";
+			class PositionInfo
+			{
+				position[]={-1047.2469,21.313745,10319.853};
+				angles[]={0,1.2450684,0};
+			};
+			side="Empty";
+			flags=1;
+			class Attributes
+			{
+				aiRadarUsage=1068520640;
+			};
+			id=26129;
+			type="ATLAS_B_LHD_helper";
+			atlOffset=93.218475;
 		};
 	};
 	class Connections
