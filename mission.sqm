@@ -8,7 +8,7 @@ class EditorData
 	toggles=513;
 	class ItemIDProvider
 	{
-		nextID=26171;
+		nextID=26187;
 	};
 	class MarkerIDProvider
 	{
@@ -16,14 +16,14 @@ class EditorData
 	};
 	class LayerIndexProvider
 	{
-		nextID=774;
+		nextID=786;
 	};
 	class Camera
 	{
-		pos[]={7618.0752,37.483791,4388.918};
-		dir[]={-0.52932298,-0.39233109,-0.7522794};
-		up[]={-0.22580665,0.91979432,-0.32091862};
-		aside[]={-0.81784683,-4.4202898e-007,0.57545936};
+		pos[]={7787.1558,13.435738,4639.9893};
+		dir[]={0.85604703,-0.34066841,0.38881442};
+		up[]={0.31024438,0.94015783,0.14091243};
+		aside[]={0.41354939,-1.9581057e-007,-0.91050982};
 	};
 };
 binarizationWanted=0;
@@ -109,6 +109,7 @@ addons[]=
 	"ace_chemlights",
 	"A3_Weapons_F_Items",
 	"ace_medical",
+	"ace_nouniformrestrictions",
 	"rhsusf_c_fmtv",
 	"acre_api",
 	"A3_Structures_F_Civ_Lamps",
@@ -140,13 +141,14 @@ addons[]=
 	"FIR_AirWeaponSystem_US",
 	"fza_ah64_US",
 	"A3_Structures_F_Mil_Helipads",
-	"ace_rearm"
+	"ace_rearm",
+	"RRF_Units"
 };
 class AddonsMetaData
 {
 	class List
 	{
-		items=75;
+		items=77;
 		class Item0
 		{
 			className="A3_Structures_F";
@@ -464,167 +466,181 @@ class AddonsMetaData
 		};
 		class Item49
 		{
+			className="ace_nouniformrestrictions";
+			name="ACE3 - No Uniform Restrictions";
+			author="ACE-Team";
+			url="http://ace3mod.com/";
+		};
+		class Item50
+		{
 			className="rhsusf_c_fmtv";
 			name="FMTV Trucks";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item50
+		class Item51
 		{
 			className="acre_api";
 			name="ACRE2 - API";
 			author="ACRE2Team";
 			url="https://github.com/IDI-Systems/acre2";
 		};
-		class Item51
+		class Item52
 		{
 			className="A3_Modules_F";
 			name="Arma 3 Alpha - Scripted Modules";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item52
+		class Item53
 		{
 			className="A3_Props_F_Exp";
 			name="Arma 3 Apex - Decorative and Mission Objects";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item53
+		class Item54
 		{
 			className="A3_Soft_F_Exp";
 			name="Arma 3 Apex - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item54
+		class Item55
 		{
 			className="A3_Soft_F_Gamma";
 			name="Arma 3 - Unarmored Land Vehicles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item55
+		class Item56
 		{
 			className="ace_refuel";
 			name="ACE3 - Refuel";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item56
+		class Item57
 		{
 			className="ace_repair";
 			name="ACE3 - Repair";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
 		};
-		class Item57
+		class Item58
 		{
 			className="A3_Supplies_F_Heli";
 			name="Arma 3 Helicopters - Ammoboxes and Supplies";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item58
+		class Item59
 		{
 			className="A3_Structures_F_Kart";
 			name="Arma 3 Karts - Buildings and Structures";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item59
+		class Item60
 		{
 			className="CUP_CAStructures_E_Ind_Ind_FuelStation";
 			name="CUP_CAStructures_E_Ind_Ind_FuelStation";
 		};
-		class Item60
+		class Item61
 		{
 			className="CUP_CAStructures_PMC_FuelStation";
 			name="CUP_CAStructures_PMC_FuelStation";
 		};
-		class Item61
+		class Item62
 		{
 			className="CUP_CAMisc_E_WF";
 			name="CUP_CAMisc_E_WF";
 		};
-		class Item62
+		class Item63
 		{
 			className="CUP_StandaloneTerrains_Core_Faction";
 			name="CUP_StandaloneTerrains_Core_Faction";
 		};
-		class Item63
+		class Item64
 		{
 			className="AORU_Config";
 			name="AORU_Config";
 		};
-		class Item64
+		class Item65
 		{
 			className="A3_Characters_F_Exp";
 			name="Arma 3 Apex - Characters and Clothing";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item65
+		class Item66
 		{
 			className="rhsusf_c_melb";
 			name="MELB";
 			author="Red Hammer Studios";
 			url="http://www.rhsmods.org/";
 		};
-		class Item66
+		class Item67
 		{
 			className="FIR_A10C_F";
 			name="FIR_A10C_F";
 		};
-		class Item67
+		class Item68
 		{
 			className="UK3CB_BAF_Vehicles_Weapons_Editor";
 			name="UK3CB_BAF_Vehicles_Weapons_Editor";
 		};
-		class Item68
+		class Item69
 		{
 			className="A3_Boat_F_Jets";
 			name="Arma 3 Jets - Boats and Submersibles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item69
+		class Item70
 		{
 			className="A3_Boat_F_EPC";
 			name="Arma 3 Win Episode - Boats and Submersibles";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item70
+		class Item71
 		{
 			className="A3_Static_F_Jets";
 			name="Arma 3 Jets - Turrets";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item71
+		class Item72
 		{
 			className="A3_Air_F_Jets";
 			name="Arma 3 Jets - Aircrafts";
 			author="Bohemia Interactive";
 			url="https://www.arma3.com";
 		};
-		class Item72
+		class Item73
 		{
 			className="FIR_AirWeaponSystem_US";
 			name="FIR_AirWeaponSystem_US";
 		};
-		class Item73
+		class Item74
 		{
 			className="fza_ah64_US";
 			name="fza_ah64_US";
 		};
-		class Item74
+		class Item75
 		{
 			className="ace_rearm";
 			name="ACE3 - Rearm";
 			author="ACE-Team";
 			url="http://ace3mod.com/";
+		};
+		class Item76
+		{
+			className="RRF_Units";
+			name="1RRF Units";
+			author="Striker.A [1RRF]";
+			url="https://1st-rrf.com";
 		};
 	};
 };
@@ -652,25 +668,6 @@ class CustomAttributes
 	{
 		name="Multiplayer";
 		class Attribute0
-		{
-			property="RespawnButton";
-			expression="true";
-			class Value
-			{
-				class data
-				{
-					class type
-					{
-						type[]=
-						{
-							"SCALAR"
-						};
-					};
-					value=1;
-				};
-			};
-		};
-		class Attribute1
 		{
 			property="RespawnTemplates";
 			expression="true";
@@ -703,6 +700,25 @@ class CustomAttributes
 							};
 						};
 					};
+				};
+			};
+		};
+		class Attribute1
+		{
+			property="RespawnButton";
+			expression="true";
+			class Value
+			{
+				class data
+				{
+					class type
+					{
+						type[]=
+						{
+							"SCALAR"
+						};
+					};
+					value=1;
 				};
 			};
 		};
@@ -761,7 +777,7 @@ class Mission
 	};
 	class Entities
 	{
-		items=4803;
+		items=4811;
 		class Item0
 		{
 			dataType="Object";
@@ -224003,8 +224019,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="MELB_SN_Nose";
-					expression="_this animate ['hide_SN_nose',_value,true]";
+					property="MELB_clan";
+					expression="_this animate ['hide_clan',_value,true]";
 					class Value
 					{
 						class data
@@ -224098,8 +224114,8 @@ class Mission
 				};
 				class Attribute5
 				{
-					property="MELB_clan";
-					expression="_this animate ['hide_clan',_value,true]";
+					property="MELB_SN_Nose";
+					expression="_this animate ['hide_SN_nose',_value,true]";
 					class Value
 					{
 						class data
@@ -225415,8 +225431,8 @@ class Mission
 			{
 				class Attribute0
 				{
-					property="MELB_SN_Nose";
-					expression="_this animate ['hide_SN_nose',_value,true]";
+					property="MELB_clan";
+					expression="_this animate ['hide_clan',_value,true]";
 					class Value
 					{
 						class data
@@ -225491,8 +225507,8 @@ class Mission
 				};
 				class Attribute4
 				{
-					property="MELB_clan";
-					expression="_this animate ['hide_clan',_value,true]";
+					property="MELB_SN_Nose";
+					expression="_this animate ['hide_SN_nose',_value,true]";
 					class Value
 					{
 						class data
@@ -226268,7 +226284,7 @@ class Mission
 			text="10";
 			type="mil_arrow";
 			colorName="ColorYellow";
-			angle=108.10297;
+			angle=108.10296;
 			id=26137;
 			atlOffset=-2.9963861;
 		};
@@ -226304,7 +226320,7 @@ class Mission
 			text="C";
 			type="mil_box";
 			colorName="ColorYellow";
-			angle=17.488316;
+			angle=17.488314;
 			id=26140;
 			atlOffset=-2.8806803;
 		};
@@ -226328,7 +226344,7 @@ class Mission
 			text="C";
 			type="mil_box";
 			colorName="ColorYellow";
-			angle=17.488314;
+			angle=17.488312;
 			id=26145;
 			atlOffset=-2.8806803;
 		};
@@ -226338,7 +226354,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7557.4517,6.0190253,4319.6738};
-				angles[]={-0,1.1049156,0};
+				angles[]={0,1.1049156,0};
 			};
 			side="Empty";
 			flags=4;
@@ -226396,7 +226412,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7544.416,6.0190253,4346.0703};
-				angles[]={-0,1.1049156,0};
+				angles[]={0,1.1049156,0};
 			};
 			side="Empty";
 			flags=4;
@@ -226585,7 +226601,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7530.5586,2.995662,4372.9639};
-				angles[]={-0,4.2039843,0};
+				angles[]={0,4.2039843,0};
 			};
 			side="Empty";
 			flags=4;
@@ -226601,7 +226617,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7517.4858,2.995662,4399.3159};
-				angles[]={-0,4.2039843,0};
+				angles[]={0,4.2039843,0};
 			};
 			side="Empty";
 			flags=4;
@@ -226617,7 +226633,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7504.0664,2.995662,4426.2876};
-				angles[]={-0,4.2039843,0};
+				angles[]={0,4.2039843,0};
 			};
 			side="Empty";
 			flags=4;
@@ -226633,7 +226649,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7543.9497,2.995662,4345.9468};
-				angles[]={-0,4.2039843,0};
+				angles[]={0,4.2039843,0};
 			};
 			side="Empty";
 			flags=4;
@@ -226649,7 +226665,7 @@ class Mission
 			class PositionInfo
 			{
 				position[]={7557.0151,2.995662,4319.624};
-				angles[]={-0,4.2629833,0};
+				angles[]={0,4.2629833,0};
 			};
 			side="Empty";
 			flags=4;
@@ -226918,6 +226934,748 @@ class Mission
 				};
 				nAttributes=2;
 			};
+		};
+		class Item4803
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7799.1152,4.9783964,4645.5356};
+						angles[]={0,4.3512106,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="EXPERIMENTAL - DYNAMIC LOADOUT SYSTEM";
+						isPlayable=1;
+					};
+					id=26172;
+					type="RRF_Player";
+					atlOffset=-4.7683716e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male09ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=26171;
+			atlOffset=-4.7683716e-007;
+		};
+		class Item4804
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7798.293,4.9888234,4646.9619};
+						angles[]={0,4.3314013,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="EXPERIMENTAL - DYNAMIC LOADOUT SYSTEM";
+						isPlayable=1;
+					};
+					id=26174;
+					type="RRF_Player";
+					atlOffset=-4.7683716e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=26173;
+			atlOffset=-4.7683716e-007;
+		};
+		class Item4805
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7797.4648,5.0021753,4648.54};
+						angles[]={0,4.3455729,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="EXPERIMENTAL - DYNAMIC LOADOUT SYSTEM";
+						isPlayable=1;
+					};
+					id=26176;
+					type="RRF_Player";
+					atlOffset=-4.7683716e-007;
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male03ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.98000002;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=26175;
+			atlOffset=-4.7683716e-007;
+		};
+		class Item4806
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7796.583,5.0163975,4650.2056};
+						angles[]={0,4.2820606,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="EXPERIMENTAL - DYNAMIC LOADOUT SYSTEM";
+						isPlayable=1;
+					};
+					id=26178;
+					type="RRF_Player";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male10ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=26177;
+		};
+		class Item4807
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7795.6802,5.0298247,4651.7188};
+						angles[]={0,4.3765006,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="EXPERIMENTAL - DYNAMIC LOADOUT SYSTEM";
+						isPlayable=1;
+					};
+					id=26180;
+					type="RRF_Player";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male08ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.94999999;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=26179;
+		};
+		class Item4808
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7795.0439,5.0527849,4653.3989};
+						angles[]={0,4.3544917,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="EXPERIMENTAL - DYNAMIC LOADOUT SYSTEM";
+						isPlayable=1;
+					};
+					id=26182;
+					type="RRF_Player";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male12ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.02;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=26181;
+		};
+		class Item4809
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7794.1182,5.0604386,4654.6729};
+						angles[]={0,4.2786746,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="EXPERIMENTAL - DYNAMIC LOADOUT SYSTEM";
+						isPlayable=1;
+					};
+					id=26184;
+					type="RRF_Player";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male06ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=0.97000003;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=26183;
+		};
+		class Item4810
+		{
+			dataType="Group";
+			side="West";
+			class Entities
+			{
+				items=1;
+				class Item0
+				{
+					dataType="Object";
+					class PositionInfo
+					{
+						position[]={7793.4102,5.0751944,4656.0518};
+						angles[]={0,4.2294736,0};
+					};
+					side="West";
+					flags=7;
+					class Attributes
+					{
+						description="EXPERIMENTAL - DYNAMIC LOADOUT SYSTEM";
+						isPlayable=1;
+					};
+					id=26186;
+					type="RRF_Player";
+					class CustomAttributes
+					{
+						class Attribute0
+						{
+							property="acex_headless_blacklist";
+							expression="_this setVariable [""acex_headless_blacklist"",_value,true]";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"BOOL"
+										};
+									};
+									value=0;
+								};
+							};
+						};
+						class Attribute1
+						{
+							property="speaker";
+							expression="_this setspeaker _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"STRING"
+										};
+									};
+									value="Male01ENG";
+								};
+							};
+						};
+						class Attribute2
+						{
+							property="pitch";
+							expression="_this setpitch _value;";
+							class Value
+							{
+								class data
+								{
+									class type
+									{
+										type[]=
+										{
+											"SCALAR"
+										};
+									};
+									value=1.04;
+								};
+							};
+						};
+						nAttributes=3;
+					};
+				};
+			};
+			class Attributes
+			{
+			};
+			id=26185;
 		};
 	};
 	class Connections
