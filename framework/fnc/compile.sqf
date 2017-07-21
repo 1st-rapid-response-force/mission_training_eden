@@ -20,6 +20,7 @@ rrf_fnc_training_pistolRange =  compile preprocessfilelinenumbers 'framework\fnc
 rrf_fnc_training_longRange =  compile preprocessfilelinenumbers 'framework\fnc\training\longRangeScript.sqf';
 rrf_fnc_training_grenadeRange =  compile preprocessfilelinenumbers 'framework\fnc\training\grenadeRangeScript.sqf';
 rrf_fnc_training_reportScore =  compile preprocessfilelinenumbers 'framework\fnc\training\centralizedScoring.sqf';
+rrf_fnc_training_longRangeReset =  compile preprocessfilelinenumbers 'framework\fnc\training\resetLongRange.sqf';
 
 /////////////////////CLIENT\\\\\\\\\\\\\\\\\\\\\
 if (!isDedicated) then {

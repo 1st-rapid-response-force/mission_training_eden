@@ -37,9 +37,7 @@ fnc_target ={
 	_laneScore1 = _this select 2;
 	_object removeAllEventHandlers "HitPart";
 	_laneScore1 = 1+_laneScore1;
-	call compile format["laneRifleScore%1 = %2;", _laneNum1, _laneScore1];
-	call compile format["publicVariable ""laneRifleScore%1""", _laneNum1];
-	hint format["RIFLE LANE %1 - %2/40",_laneNum1,_laneScore1];
+	hint format["RIFLE LANE %1 - Hit",_laneNum1,_laneScore1];
 };
 
 fnc_countDown10 = {
@@ -105,7 +103,6 @@ for "_i" from 1 to _stageMaxScore do {
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
 	_target removeAllEventHandlers "HitPart";
-	call compile format["_laneScore = laneRifleScore%1;", _laneNum];
 };
 
 ///////////////////////////////////////////////////////
@@ -138,7 +135,6 @@ for "_i" from 1 to _stageMaxScore do {
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
 	_target removeAllEventHandlers "HitPart";
-	call compile format["_laneScore = laneRifleScore%1;", _laneNum];
 };
 
 ///////////////////////////////////////////////////////
@@ -171,7 +167,6 @@ for "_i" from 1 to _stageMaxScore do {
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
 	_target removeAllEventHandlers "HitPart";
-	call compile format["_laneScore = laneRifleScore%1;", _laneNum];
 };
 
 ///////////////////////////////////////////////////////
@@ -180,7 +175,3 @@ for "_i" from 1 to _stageMaxScore do {
 sleep 5;
 {_x animate ["terc", 0];} forEach _rangeArray;
 hint "CEASE FIRE - RANGE IS CLEAR.";
-call compile format["_laneScore = laneRifleScore%1;", _laneNum];
-sleep 5;
-hint format["RANGE CLEAR - RIFLE LANE %1 - %2/40",_laneNum,_laneScore];
-sleep 5;
