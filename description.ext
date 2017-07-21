@@ -7,42 +7,4 @@ class Params
 		texts[] = {"True","False"};
 		default = 0;
 	};
-	class rrfFusion
-	{
-		title = "1st RRF - Fusion";
-		values[] = {1,0};
-		texts[] = {"Enabled","Disabled"};
-		default = 0;
-	};
-	class rrfPersistence
-	{
-		title = "1st RRF - Persistence System";
-		values[] = {1,0};
-		texts[] = {"Enabled","Disabled"};
-		default = 0;
-	};
-	class rrfAnalytics
-	{
-		title = "1st RRF - Analytics System";
-		values[] = {1,0};
-		texts[] = {"Enabled","Disabled"};
-		default = 0;
-	};
-	class rrfWebLoadout
-	{
-		title = "1st RRF - Web Loadout System";
-		values[] = {1,0};
-		texts[] = {"Enabled","Disabled"};
-		default = 0;
-	};
 };
-
-enableDebugConsole = 1;
-
-// Framework Includes
-#include "framework\sounds\sounds.hpp"
-#include "framework\def\functions.hpp"
-
-// 3rd Party Includes
-#include "framework\3rd_party\CoalaOS\common.hpp"
-#include "framework\3rd_party\CoalaOS\base.hpp"

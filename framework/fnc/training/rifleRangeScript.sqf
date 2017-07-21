@@ -8,7 +8,7 @@
   	_this:	0 - int - Lane Number
   			1 - array - Targets in an Array
   			2 - int - Time between targets
-  			3 - bool - Determine if score should be sent to Catalyst
+  			3 - obj - RangerMaster
 
 	Returns:
 	Nothing
@@ -24,29 +24,23 @@ _weapon = currentWeapon _player;
 _rangeType = "Rifle Range";
 _laneScore = 0;
 _stageMaxScore = 0;
-_qualification = "Unset";
 _laneNum = _this select 0;
 _rangeArray = _this select 1;
 _timeBetweenTargets = _this select 2;
-_storeResult = _this select 3;
-_rangeMaster = _this select 4;
-_rangeId = _this select 5;
+_rangeMaster = _this select 3;
 
 // Call Function on Server by sending it the neccessary information
 
 fnc_target ={
 	_object = _this select 0;
+	_laneNum1 = _this select 1;
+	_laneScore1 = _this select 2;
 	_object removeAllEventHandlers "HitPart";
-	_laneNum = _this select 1;
-	_rangeId = _this select 2;
-	hintSilent  "Target Hit";
-	sleep 1;
-	hintSilent "";
-	
-
+	_laneScore1 = 1+_laneScore1;
+	call compile format["laneRifleScore%1 = %2;", _laneNum1, _laneScore1];
+	call compile format["publicVariable ""laneRifleScore%1""", _laneNum1];
+	hint format["RIFLE LANE %1 - %2/40",_laneNum1,_laneScore1];
 };
-
-
 
 fnc_countDown10 = {
 	for "_i" from 5 to 0 step -1 do {
@@ -58,25 +52,40 @@ fnc_countDown10 = {
 };
 
 
+///////////////////////////////////////////////////////
+//////////////////// Introduction
+///////////////////////////////////////////////////////
 
-//Comsmetics
-titleText ["Rifle Range Qualification Course","PLAIN",1];
-hint "Welcome to Rifle Range Qualification Course";
-sleep 5;
-hint "You will be given 10 Targets in the Standing Position, 20 Targets in the Crouch Position, and 30 targets in the Prone Position";
-sleep 5;
-hint "Please Load your Rifle";
-sleep 5;
-hint "USE 1 ROUND PER TARGET ONLY!";
-sleep 5;
-hint "STANDING POSITION";
+if (debugEnabled == 0) then {
+	titleText ["Rifle Range Qualification Course","PLAIN",1];
+    hint "Welcome to Rifle Range Qualification Course";
+	sleep 5;
+	hint "You will be given 10 Targets in the Standing Position, 10 Targets in the Crouch Position, and 20 targets in the Prone Position";
+	sleep 5;
+	hint "LOAD YOUR RIFLE";
+	sleep 5;
+	hint "USE 1 ROUND PER TARGET ONLY!";
+	sleep 5;
+	hint "STANDING POSITION";
+
+
+
 //Begin Alarm
 _null = call fnc_countDown10;
+
+
+};
 //Drop Targets
 {_x animate ["terc", 1];} forEach _rangeArray;
 
+///////////////////////////////////////////////////////
+//////////////////// PHASE 1 - STANDING
+///////////////////////////////////////////////////////
 //Standing
 _stageMaxScore = 10;
+if (debugEnabled == 1) then {
+    _stageMaxScore = 2;
+};
 sleep _timeBetweenTargets;
 hint "Range is HOT!";
 _previousTarget = _rangeArray select 0;
@@ -89,22 +98,59 @@ for "_i" from 1 to _stageMaxScore do {
 	    _target = _rangeArray call BIS_fnc_selectRandom;
 	  };
 	};
-	_target addEventHandler ["HitPart", format ["_null = [%1,%2,%3] call fnc_target", _target, _laneNum,_rangeId]];
+	_target addEventHandler ["HitPart", format ["_null = [%1,%2,%3] call fnc_target", _target, _laneNum,_laneScore]];
 	_target animate ["terc", 0];
 	sleep _timeBetweenTargets;
 	_target animate ["terc", 1];
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
 	_target removeAllEventHandlers "HitPart";
+	call compile format["_laneScore = laneRifleScore%1;", _laneNum];
 };
-[_rangeId,60,player,_ownerID] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 
-//Crouch
+///////////////////////////////////////////////////////
+//////////////////// PHASE 2 - CROUCH
+///////////////////////////////////////////////////////
 sleep 5;
-hint "Prepare for Crouch Qualification";
-hint "Go to the Crouch Position";
+hint "PHASE 2 - CROUCH POSITION";
+sleep 5;
+_stageMaxScore = 10;
+if (debugEnabled == 1) then {
+    _stageMaxScore = 2;
+};
+sleep _timeBetweenTargets;
+
+hint "Range is HOT!";
+_previousTarget = _rangeArray select 0;
+
+for "_i" from 1 to _stageMaxScore do {
+	_target = _rangeArray call BIS_fnc_selectRandom;
+	if (_previousTarget == _target) then {
+	  _target = _rangeArray call BIS_fnc_selectRandom;
+	  if (_previousTarget == _target) then {
+	    _target = _rangeArray call BIS_fnc_selectRandom;
+	  };
+	};
+	_target addEventHandler ["HitPart", format ["_null = [%1,%2,%3] call fnc_target", _target, _laneNum,_laneScore]];
+	_target animate ["terc", 0];
+	sleep _timeBetweenTargets;
+	_target animate ["terc", 1];
+	_previousTarget = _target;
+	sleep _timeBetweenTargets;
+	_target removeAllEventHandlers "HitPart";
+	call compile format["_laneScore = laneRifleScore%1;", _laneNum];
+};
+
+///////////////////////////////////////////////////////
+//////////////////// PHASE 2 - PRONE
+///////////////////////////////////////////////////////
+sleep 5;
+hint "PHASE 2 - PRONE POSITION";
 sleep 5;
 _stageMaxScore = 20;
+if (debugEnabled == 1) then {
+    _stageMaxScore = 2;
+};
 sleep _timeBetweenTargets;
 
 hint "Range is HOT!";
@@ -118,59 +164,23 @@ for "_i" from 1 to _stageMaxScore do {
 	    _target = _rangeArray call BIS_fnc_selectRandom;
 	  };
 	};
-	_target addEventHandler ["HitPart", format ["_null = [%1,%2,%3] call fnc_target", _target, _laneNum,_rangeId]];
+	_target addEventHandler ["HitPart", format ["_null = [%1,%2,%3] call fnc_target", _target, _laneNum,_laneScore]];
 	_target animate ["terc", 0];
 	sleep _timeBetweenTargets;
 	_target animate ["terc", 1];
 	_previousTarget = _target;
 	sleep _timeBetweenTargets;
 	_target removeAllEventHandlers "HitPart";
+	call compile format["_laneScore = laneRifleScore%1;", _laneNum];
 };
-[_rangeId,60,player,_ownerID] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
 
-//Prone
-sleep 5;
-hint "Prepare for Prone Qualification";
-hint "Go to the Prone Position";
-sleep 5;
-_stageMaxScore = 30;
-
-sleep _timeBetweenTargets;
-
-hint "Range is HOT!";
-_previousTarget = _rangeArray select 0;
-
-for "_i" from 1 to _stageMaxScore do {
-	_target = _rangeArray call BIS_fnc_selectRandom;
-	if (_previousTarget == _target) then {
-	  _target = _rangeArray call BIS_fnc_selectRandom;
-	  if (_previousTarget == _target) then {
-	    _target = _rangeArray call BIS_fnc_selectRandom;
-	  };
-	};
-	_target addEventHandler ["HitPart", format ["_null = [%1,%2,%3] call fnc_target", _target, _laneNum,_rangeId]];
-	_target animate ["terc", 0];
-	sleep _timeBetweenTargets;
-	_target animate ["terc", 1];
-	_previousTarget = _target;
-	sleep _timeBetweenTargets;
-	_target removeAllEventHandlers "HitPart";
-};
-[_rangeId,60,player,_ownerID] remoteExecCall ["rrf_fnc_training_serverRangeReport", 2];
-
-//Reset Range
+///////////////////////////////////////////////////////
+//////////////////// REPORT OUT
+///////////////////////////////////////////////////////
 sleep 5;
 {_x animate ["terc", 0];} forEach _rangeArray;
-hint "CEASE FIRE - RANGE IS CLEAR. Return to your instructor for further details.";
-
-//Submit Score to all Clients
-// We will need to create a method for storing this information
-if (rrfFusion == 1) then {
-	if (_storeResult == 1) then {
-	    //_store = [_uuid, _rangeType, 60, _weapon, _rangeId] remoteExecCall ["rrf_fnc_training_serverStoreRange",2];
-	    RangerMaster sideChat format["RIFLE LANE %1 - Saving Disabled pending update",_laneNum];
-	};
-};
-//
-
+hint "CEASE FIRE - RANGE IS CLEAR.";
+call compile format["_laneScore = laneRifleScore%1;", _laneNum];
+sleep 5;
+hint format["RANGE CLEAR - RIFLE LANE %1 - %2/40",_laneNum,_laneScore];
 sleep 5;
