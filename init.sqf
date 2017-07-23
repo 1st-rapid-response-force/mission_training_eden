@@ -16,6 +16,7 @@ call compile preprocessFile "framework\fnc\compile.sqf";
 
 if (isServer) then {
 	call compile preprocessFile "framework\init_server.sqf";
+	["ETR"] call RR_fnc_initRifleRange;
 };
 
 call compile preprocessFile "framework\init_common.sqf";

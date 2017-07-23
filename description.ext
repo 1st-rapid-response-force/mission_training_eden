@@ -8,3 +8,21 @@ class Params
 		default = 0;
 	};
 };
+
+
+class Header
+{
+	gameType = COOP; //game type
+	minPlayers = 1; //min # of players the mission supports
+	maxPlayers = 8; //max # of players the mission supports
+};
+
+class CfgFunctions
+{
+	#include "rifleRange\functions.hpp"
+};
+
+class CfgSounds
+{
+	#include "rifleRange\sounds.hpp"
+};
